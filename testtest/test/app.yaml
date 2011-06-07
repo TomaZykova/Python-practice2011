@@ -1,0 +1,15 @@
+application: test
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /html/pict
+  static_dir: html/pict 
+
+- url: /(forum|createTopic|actionCreateTopic|topic|addMessage|editMessage|successEditMessage|actionEditMessage|actionDeleteMessage|successDeleteMessage|errorCreateTopic|errorAddMessage|user|saveChanges)
+  script: forum.py
+  
+  
+- url: .*
+  script: main.py

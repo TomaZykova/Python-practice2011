@@ -1,0 +1,178 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+<title>Сайт кафедры ИИТ</title><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<style type="text/css">
+* {margin: 0;
+   padding: 0;
+}
+tbody .odd {
+    color: #000;
+    background-color: d9d7d5;
+}
+
+tbody .even {
+    color: #000;
+    background-color: #eef;
+}
+
+ul#menu {
+ width: 9em;
+ font-size: 0.95em;
+ background: #F2F2F2;
+}
+
+ul#menu li {
+ width: 9em;
+ position: relative;
+ list-style: none;
+
+ background-position: center right;
+ background-repeat: no-repeat;
+}
+
+* html ul#menu li { float: left; }
+
+ul#menu li a {
+ display: block;
+ padding: 0.6em 6px 0.6em 0.6em;
+
+ color: #555;
+ text-decoration: none;
+}
+
+ul#menu li ul {
+ width: 9em;
+ display: none;
+ position: absolute;
+ top: 0;
+ left: 9em;
+ margin-top: -1px;
+ background: #FCFCFC;
+ border: 1px #E0E0E0 solid;
+}
+#menu a:hover {
+  color: #000;
+  background: #ccc;
+}
+#menu li:hover {
+  background: #333;
+}
+ul#menu li.over ul { display: block; }
+ul#menu li.over ul li ul { display: none; }
+ul#menu li ul li.over ul { display: block; }
+ul#menu li ul li.over ul li ul { display: none; }
+ul#menu li ul li ul li.over ul { display: block; }
+ul#menu li ul li ul li.over ul li ul { display: none; }
+ul#menu li ul li ul li ul li.over ul { display: block; }
+ul#menu li ul li ul li ul li.over ul li ul { display: none; }
+ul#menu li.non-empty { background-image: url(images/arrow.bmp); }
+ul#menu li.over { background-color: #EEE; }
+.pad td {padding:5;}
+</style>
+
+<script src="main2_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+    _menu  = function(HTMLUList) {
+        for (var node = HTMLUList.firstChild; node != null; node = node.nextSibling) {
+            if (node.nodeName != 'LI') continue;
+
+            node.onmouseover = function() {
+                this.className += ' over';
+            }
+
+            node.onmouseout = function() {
+                this.className = this.className.replace('over', '');
+            }
+
+            if (node.getElementsByTagName('UL').length) {
+                _menu(node.getElementsByTagName('UL')[0]);
+                node.className = 'non-empty';
+            }
+        }
+    }
+
+    window.onload = function() {
+        _menu(document.getElementById('menu'))
+    }
+  function makeStripe(tab)
+{
+    var rows = tab.getElementsByTagName("tr");
+
+    if (!rows)
+        return;
+
+    for(var i=0; i<rows.length; i++)
+        rows[i].className = ((i%2)==0 ? "odd" : "even");
+}
+
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21625035-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+<link href="main2_files/main.css" type="text/css" rel="stylesheet" charset="utf-8" id="depositfiles_css"></head><body onload="makeStripe(document.getElementById('tab1') ); makeStripe(document.getElementById('tab2') ); makeStripe(document.getElementById('tab3'));" bgcolor="#ffffff"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr bgcolor="#99958c" height="74">
+ <td background="main2_files/mid_baner.gif"></td><td colspan="2" background="main2_files/mid_baner.gif"><h2><font color="#ffffff">Кафедра Интеллектуальных&nbsp;Информационных&nbsp;Технологий</font></h2></td>
+</tr>
+<tr height="21"><td colspan="3" align="center" bgcolor="#ffffff"> </td></tr>
+<tr height="21"><td colspan="3" background="main2_files/blkhc.gif" bgcolor="#d2d2d2"></td></tr>
+<tr height="3"><td colspan="3" bgcolor="#e2e2e2"></td><td bgcolor="#ffffff"></td></tr>
+
+<tr class="pad">
+ <td bgcolor="#f2f2f2" valign="top" width="40">
+    {{greetings}}
+   <ul id="menu">
+    <li class="">
+      <a href="/">Главная</a>
+    </li>
+
+   <li class="">
+      <a href="/history">История</a>
+   </li>
+
+   <li class="">
+      <a href="/schedule" title="">Расписание</a>
+   </li>
+
+
+   <li class="">
+      <a href="/forum?page=1" title="">Форум</a>
+   </li>
+
+   <li class="">
+      <a href="/news" title="">Новости</a>
+   </li>
+
+   <li class="">
+      <a href="/search" title="">Поиск</a>
+   </li>
+
+   </ul> </td>
+
+ <td bgcolor="#f9f9f9" valign="top">
+ 
+{% block content %}
+{% endblock %}
+ <img src="html/pict/forum.jpg"> 
+</td>
+</tr>
+
+<tr height="17">
+ <td bgcolor="#f2f2f2"></td>
+ <td bgcolor="#ffffff">
+</td></tr>
+<tr height="21"><td colspan="3" bgcolor="#ffffff"></td></tr>
+<tr bgcolor="#d2d2d2" height="21">
+ <td colspan="3"></td>
+</tr>
+<tr>
+ <td colspan="3" align="center" bgcolor="black"><h5><font color="white"> </font></h5><font color="white"></font></td>
+</tr>
+</tbody></table>
+</body></html>
